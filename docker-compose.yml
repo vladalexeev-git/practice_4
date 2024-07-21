@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+    city-service:
+        container_name: city-service
+        image: cityapp-image
+        build:
+            context: .
+            dockerfile: Dockerfile
+        depends_on:
+            - oradb
+        environment:
+            - "DB_CONN=system/admin@oradb:1521/XE"
+            - "PORT=:8081"
+            - "LD_LIBRARY_PATH=/opt/oracle/instantclient_23_4"
+            - "PATH=/opt/oracle/instantclient_23_4:$PATH"
+        volumes:
+            - "/opt/oracle:/opt/oracle"
+        ports:
+            - "8001:8081"
+
+    oradb:
+        container_name: oradb-xe
+        image: "sxuaner1/oracledb21xe:latest"
+        ports:
+            - "1522:1521"
+            - "5501:5500"
+        volumes:
+            - "./oravol:/opt/oracle/oradata" #datafiles
+
+        environment:
+            - "ORACLE_PWD=admin"
+            - "ORACLE_PASSWORD=admin"
+            - "ORACLE_SID=XE"
+volumes:
+    oradb:
+    city-service:
