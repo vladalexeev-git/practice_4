@@ -37,11 +37,15 @@ RUN echo $LD_LIBRARY_PATH
 RUN echo $PATH
 ```
 3) Если необходимо, скорректируйте Dockerfile и docker-compose, чтобы версии совпадали.
-4) Запустите контейнеры командой:
+4) Запустите контейнеры  
+Сначала запустите oracle db и проверьте, что база корректно запустилась.
 ```Bash
-docker-compose up -d
+docker-compose up oradb -d
 ```
-
+После можно запускать сам сервис.  
+```Bash
+docker-compose up city-service -d
+```
 * Описания работы приложения:
 ```
 request:
