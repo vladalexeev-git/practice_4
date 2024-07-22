@@ -1,0 +1,17 @@
+---
+- name: Deploy HTML page to Nginx
+  hosts: ec2_servers
+  become: true
+  tasks:
+    - name: Copy HTML page to Nginx directory
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Ensure Nginx service is running
+      systemd:
+        name: nginx
+        state: started

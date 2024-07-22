@@ -1,0 +1,20 @@
+---
+- name: Install and start Nginx
+  hosts: ec2_servers
+  become: true
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Enable Nginx to start on boot
+      systemd:
+        name: nginx
+        enabled: yes
+
+    - name: Start Nginx service
+      systemd:
+        name: nginx
+        state: started

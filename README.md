@@ -3,6 +3,10 @@
 1) [Инвентори-файл](src/hosts)
 2) ```ansible -i hosts all -m ping```  
 ![img.png](src/img2.png)
+3) playbooks  
+3.1 [install_nginx](src/install_nginx.yml)  
+3.2 [deploy_website.yml](src/deploy_website.yml)  
+3.3 [install_postgres.yml](src/install_postgres.yml)  
 ### Часть 2
 * Создаем таблицы и делаем выборку:
 ```SQL
