@@ -1,6 +1,8 @@
 # Практическая работа №4
 ### Часть 1
-coming soon..
+1) [Инвентори-файл](src/hosts)
+2) ```ansible -i hosts all -m ping```  
+![img.png](src/img2.png)
 ### Часть 2
 * Создаем таблицы и делаем выборку:
 ```SQL
