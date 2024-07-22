@@ -52,7 +52,7 @@ docker-compose up oradb -d
 ```Bash
 docker-compose up city-service -d
 ```
-* Описания работы приложения:
+* Описание работы приложения:
 ```
 request:
 curl --request GET \
